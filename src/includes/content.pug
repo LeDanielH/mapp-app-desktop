@@ -1,13 +1,11 @@
 - var categories = require('./data/data');
 
 mixin category(category, index)
-	.accordion__panel(data-category=`${index+1}`)
-		header.accordion__header
-			.accordion__number= `${index+1}.`
-			h2.accordion__label= category.title
-			.accordion__arrow
-				.accordion__arrow-icon
-		article.accordion__content
+	.content__panel(data-category=`${index+1}`)
+		header.content__header
+			.content__number= `${index+1}.`
+			h2.content__label= category.title
+		article.content__content
 			ul.question__list
 
 				each question, ind in category.questions
@@ -15,8 +13,6 @@ mixin category(category, index)
 					li.question__item(id=`question-${index+1}-${ind+1}` data-category=`${index+1}` data-order=`${ind+1}`)
 						.question__number= `${index+1}.${ind+1}`
 						.question= question.title
-						.question__arrow
-							.question__arrow-icon
 
 mixin answer(category, index)
 	each question, ind in category.questions
@@ -30,7 +26,6 @@ mixin answer(category, index)
 				|
 
 				h2.answer__category-question= question.title
-			hr.answer__separator
 			article.answer!= question.answer
 
 

@@ -1,7 +1,7 @@
 import * as smoothScroll from 'smoothscroll-polyfill'
 smoothScroll.polyfill();
 
-const SlideOut = {
+const Modal = {
 	currentScroll: 0,
 	scrollDelay: 300,
 	currentAnswer: null,
@@ -58,4 +58,4 @@ const SlideOut = {
 	}
 };
 
-export default SlideOut;
+export default Modal;
