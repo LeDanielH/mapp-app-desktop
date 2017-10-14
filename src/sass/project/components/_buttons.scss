@@ -1,0 +1,17 @@
+.btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 40px;
+	text-decoration: none;
+	color: black;
+	border: 1px solid $c-border;
+	background-color: white;
+	transition: background-color $tr-duration ease;
+	i {
+		margin-right: $base-spacing;
+	}
+	&:hover {
+		background-color: $c-bckg-active;
+	}
+}

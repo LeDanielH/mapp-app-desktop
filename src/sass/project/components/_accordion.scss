@@ -1,0 +1,160 @@
+$big-arrow-size: $sz-arrow;
+
+.accordion {
+	@extend %anim-base;
+	transition-duration: $tr-duration * 0.5;
+	@include will-change(max-height, opacity);
+	opacity: 0;
+	flex-grow: 0;
+	flex-shrink: 0;
+	@include margin(null null $base-spacing*2.5 null);
+
+	&.active {
+		max-height: initial;
+		opacity: 1;
+	}
+
+	&__number {
+		flex: 0 0 20px;
+		max-width: 20px;
+	}
+
+	&__content {
+		max-height: 0;
+		opacity: 0;
+		visibility: hidden;
+		overflow: hidden;
+		display: block;
+		@extend %anim-base;
+		@include will-change(max-height, visibility, opacity, border);
+		user-select: none;
+		border-top: 1px solid $c-border;
+		color: $c-question-title;
+		font-size: 14px;
+
+	}
+	&__header {
+		display: flex;
+		align-items: center;
+		height: $h-accordion;
+		cursor: pointer;
+		user-select: none;
+		@include padding(null ($base-spacing));
+		background-color: $c-light;
+		box-sizing: border-box;
+		border-top: 1px solid transparent;
+		border-bottom: 1px solid transparent;
+		@extend %anim-base;
+		@include will-change(background-color, border);
+	}
+	&__arrow {
+		display: inline-block;
+		margin-left: auto;
+		@extend %anim-base;
+		@include will-change(transform, border);
+		@include size(30px);
+		position: relative;
+		border: 2px solid $c-border;
+		border-radius: 50%;
+		&-icon {
+			@include position(absolute, 42% null null 50%);
+			@include size($big-arrow-size);
+			@include margin(-($big-arrow-size/2) null null (-($big-arrow-size/2)));
+			@extend %anim-base;
+			@include will-change(border);
+			transform: rotate(-45deg);
+			border-left: 3px solid $c-border;
+			border-bottom: 3px solid $c-border;
+			box-sizing: border-box;
+		}
+	}
+	&__label, &__number {
+		font-size: 15px;
+		user-select: none;
+		color: $c-accordion-title;
+		@extend %anim-base;
+		@include will-change(color);
+		font-weight: bold;
+	}
+	&__panel {
+		border: 2px solid $c-border;
+		background-color: $c-light;
+		border-radius: $bd-radius;
+		@include margin(null null $base-spacing null);
+		@extend %anim-base;
+		@include will-change(border, background-color);
+		&:last-of-type {
+			@include margin(null null 0 null);
+		}
+		&:focus, &:active {
+			border: 2px solid $c-border;
+			background-color: $c-light;
+			.accordion {
+				&__header {
+					background-color: $c-light;
+					border-top: 1px solid transparent;
+					border-bottom: 1px solid transparent;
+				}
+				&__arrow {
+					border-color: $c-border;
+					&-icon {
+						border-color: $c-border;
+					}
+				}
+				&__label, &__number {
+					color: $c-accordion-title;
+				}
+			}
+		}
+
+		&:hover {
+			border: 2px solid $c-border-active;
+			.accordion {
+				&__header {
+					background-color: $c-bckg-active;
+					border-top: 1px solid $c-bckg-active;
+					border-bottom: 1px solid $c-bckg-active;
+				}
+				&__arrow {
+					border-color: $c-border-active;
+					&-icon {
+						border-color: $c-border-active;
+					}
+				}
+				&__label, &__number {
+					color: $c-accordion-title-active;
+				}
+			}
+		}
+
+		&.active {
+			border-color: $c-border-active;
+			overflow: auto;
+
+			.accordion {
+				&__header {
+					background-color: $c-bckg-active;
+					border-top: 1px solid $c-bckg-active;
+					border-bottom: 1px solid $c-border-active;
+				}
+				&__arrow {
+					transform: rotate(180deg);
+					border-color: $c-border-active;
+					&-icon {
+						border-color: $c-border-active;
+					}
+				}
+				&__content {
+					max-height: 200px;
+					opacity: 1;
+					user-select: initial;
+					visibility: visible;
+				}
+				&__label, &__number {
+					color: $c-accordion-title-active;
+				}
+			}
+		}
+	}
+}
+

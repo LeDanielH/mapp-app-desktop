@@ -1,0 +1,43 @@
+- var categories = require('./data/data');
+
+mixin category(category, index)
+	.accordion__panel(data-category=`${index+1}`)
+		header.accordion__header
+			.accordion__number= `${index+1}.`
+			h2.accordion__label= category.title
+			.accordion__arrow
+				.accordion__arrow-icon
+		article.accordion__content
+			ul.question__list
+
+				each question, ind in category.questions
+
+					li.question__item(id=`question-${index+1}-${ind+1}` data-category=`${index+1}` data-order=`${ind+1}`)
+						.question__number= `${index+1}.${ind+1}`
+						.question= question.title
+						.question__arrow
+							.question__arrow-icon
+
+mixin answer(category, index)
+	each question, ind in category.questions
+		.answer__wrapper(id=`answer-${index+1}-${ind+1}` data-category=`${index+1}` data-order=`${ind+1}`)
+			header.answer__header
+				h4.answer__category= category.title
+				|
+				| (
+				span.answer__category-number= `${index+1}.${ind+1}`
+				| )
+				|
+
+				h2.answer__category-question= question.title
+			hr.answer__separator
+			article.answer!= question.answer
+
+
+.questions#questions
+	each category, index in categories
+		+category(category, index)
+
+.answers#answers
+	each category, index in categories
+		+answer(category, index)

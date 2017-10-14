@@ -1,0 +1,37 @@
+.app {
+	&__header {
+		display: flex;
+		align-items: center;
+		& > * {
+			display: inline-block;
+			flex: 0 0 100%;
+			max-width: 100%;
+		}
+		background-color: $c-app-header;
+		@include padding(0 ($base-spacing));
+		@include size(100% $h-accordion);
+		transform: translate3d(0, 0, 0);
+		@include will-change(transform);
+		@extend %anim-base;
+		z-index: 2;
+	}
+	&__arrow {
+		box-sizing: content-box;
+
+		cursor: pointer;
+		&-icon {
+			@include size($sz-question-arrow);
+			border-left: 2px solid $c-light;
+			border-top: 2px solid $c-light;
+			transform: rotate(-45deg);
+			@include will-change(border, transform);
+			@extend %anim-base;
+		}
+		&:hover {
+
+			.app__arrow-icon {
+				border-color: $c-border-active;
+			}
+		}
+	}
+}
