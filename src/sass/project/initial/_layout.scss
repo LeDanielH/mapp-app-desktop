@@ -1,8 +1,6 @@
 .mapp {
 	.container {
-		max-width: 960px;
-		overflow: hidden;
-		background-color: $c-app-background;
+		background-color: $c-light;
 		height: 100%;
 	}
 	&__wrapper {
