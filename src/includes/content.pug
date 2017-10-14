@@ -3,16 +3,18 @@
 mixin category(category, index)
 	.content__panel(data-category=`${index+1}`)
 		header.content__header
-			.content__number= `${index+1}.`
-			h2.content__label= category.title
-		article.content__content
+			h2.content__heading
+				span.content__number= `${index+1}.`
+				span.content__title= `${category.title}`
+		article.content
 			ul.question__list
 
 				each question, ind in category.questions
 
 					li.question__item(id=`question-${index+1}-${ind+1}` data-category=`${index+1}` data-order=`${ind+1}`)
-						.question__number= `${index+1}.${ind+1}`
-						.question= question.title
+						.question__wrapper
+							span.question__number= `${index+1}.${ind+1}`
+							span.question= question.title
 
 mixin answer(category, index)
 	each question, ind in category.questions
@@ -30,6 +32,14 @@ mixin answer(category, index)
 
 
 .questions#questions
+	ul.question__list
+		li.question__item
+			.question__wrapper
+				a(href="#") Level of access
+		li.question__item
+			.question__wrapper
+				a(href="#") Changelog
+
 	each category, index in categories
 		+category(category, index)
 
