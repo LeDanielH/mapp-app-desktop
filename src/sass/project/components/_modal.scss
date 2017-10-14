@@ -1,0 +1,22 @@
+.modal {
+	@include position(fixed, 0 0 0 0);
+	@include size(100% 100vh);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: opacify($c-content, 0.2);
+	@include padding($base-spacing*2);
+	z-index: 3;
+	user-select: none;
+	pointer-events: none;
+	opacity: 0;
+	visibility: hidden;
+	@include will-change(opacity, visibility);
+	@extend %anim-base;
+	&.active {
+		user-select: initial;
+		pointer-events: auto;
+		opacity: 1;
+		visibility: visible;
+	}
+}
