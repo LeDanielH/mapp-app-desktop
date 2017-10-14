@@ -1,74 +1,52 @@
 $sz-question-arrow: $sz-arrow;
 .question {
-	@include margin(null $base-spacing null null);
-	pointer-events: none;
 	&s {
-		width: 100%;
-		transform: translate3d(0, 0, 0);
-		position: relative;
-		z-index: 2;
-		background-color: $c-app-background;
-		@include will-change(transform, opacity, visibility);
-		opacity: 1;
-		visibility: visible;
-		user-select: initial;
-		pointer-events: initial;
-		@extend %anim-base;
-		transition-duration: $tr-duration * 1.5;
-		@include padding($pd-content);
-		.mapp__wrapper.active & {
-			transform: translate3d(-100%, 0, 0);
-			opacity: 0;
-			visibility: hidden;
-			user-select: none;
-			pointer-events: none;
+		@include padding(($base-spacing*5));
+	}
+	&__item {
+		@include margin(null null $base-spacing null);
+		font-size: 14px;
+		line-height: 1.5;
+		a {
+			color: $c-content;
+			text-decoration: none;
+			@include will-change(color);
+			@extend %anim-base;
 		}
 	}
 	&__list {
-		@include padding(0);
-		list-style-type: none;
-		margin: 0;
-
-		/* IE fix for min height */
-		display: flex;
-		flex-direction: column;
+		@include padding(0 null $base-spacing null);
 	}
-	&__item {
-		display: flex;
-		align-items: center;
-		border-bottom: 1px solid $c-border;
-		@include padding($base-spacing);
+	&__wrapper {
+		display: inline-block;
+		position: relative;
 		cursor: pointer;
-		user-select: none;
-		min-height: $h-accordion;
+		color: $c-content;
+		@include will-change(color);
+		@extend %anim-base;
+		&:after {
+			content: '';
+			@include position(absolute, null 0 0 0);
+			width: 100%;
+			@include will-change(width, color);
+			@extend %anim-base;
+			height: 1px;
+			background-color: $c-content;
+			@include margin(null auto);
+		}
 		&:hover {
-			.question {
-				&__arrow {
-					&-icon {
-						border-color: $c-border-active;
-					}
-				}
+			color: $c-content-active;
+			&:after {
+				width: 0;
+				background-color: $c-content-active;
+			}
+			a {
+				color: $c-content-active;
 			}
 		}
 	}
 	&__number {
-		flex: 0 0 35px;
-		max-width: 35px;
 		display: inline-block;
-		pointer-events: none;
-	}
-	&__arrow {
-		flex: 0 0 $sz-question-arrow;
-		@include size($sz-question-arrow);
-		max-width: $sz-question-arrow;
-		margin-left: auto;
-		&-icon {
-			@include size(100%);
-			border-right: 2px solid $c-border;
-			border-top: 2px solid $c-border;
-			transform: rotate(45deg);
-			@include will-change(border);
-			@extend %anim-base;
-		}
+		width: 40px;
 	}
 }

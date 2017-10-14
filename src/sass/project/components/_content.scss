@@ -1,0 +1,27 @@
+$big-arrow-size: $sz-arrow;
+
+.content {
+	&__heading {
+		font-weight: normal;
+		font-size: 20px;
+		line-height: 1;
+		position: relative;
+		@include padding(0 null $base-spacing null);
+		@include margin(null null $base-spacing null);
+		&:after {
+			content: '';
+			display: block;
+			@include position(absolute, null 0 0 0);
+			background-color: $c-border;
+			height: 1px;
+		}
+	}
+	&__panel {
+		@include margin(null null ($base-spacing*2) null);
+	}
+	&__number {
+		display: inline-block;
+		min-width: 25px;
+	}
+}
+

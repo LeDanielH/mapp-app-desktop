@@ -26,7 +26,7 @@ $h-arrow: 50px;
 		}
 	}
 	&__header {
-		color: $c-accordion-title;
+		color: $c-content;
 	}
 	&__category {
 		display: inline-block;
@@ -38,7 +38,7 @@ $h-arrow: 50px;
 			font-size: 14px;
 		}
 		&-question {
-			color: $c-accordion-title-active;
+			color: $c-content-active;
 			font-size: 18px;
 			@include margin(($base-spacing * 0.33) null 0 null);
 		}
