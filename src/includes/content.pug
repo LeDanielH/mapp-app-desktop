@@ -11,8 +11,8 @@ mixin category(category, index)
 
 				each question, ind in category.questions
 
-					li.question__item(id=`question-${index+1}-${ind+1}` data-category=`${index+1}` data-order=`${ind+1}`)
-						.question__wrapper
+					li.question__item
+						.question__wrapper(id=`question-${index+1}-${ind+1}` data-category=`${index+1}` data-order=`${ind+1}`)
 							span.question__number= `${index+1}.${ind+1}`
 							span.question= question.title
 
