@@ -1,7 +1,7 @@
-# MAPP APP
+# MAPP APP DESKTOP
 
-+ vanillaJS interactive mobile app template based on **Webpack** and **Pug**
-+ [preview](https://ledanielh.github.io/mapp-app/)
++ vanillaJS interactive desktop app template based on **Webpack** and **Pug**
++ [preview](https://ledanielh.github.io/mapp-app-desktop/)
 
 ## HOW TO
 1. dependencies

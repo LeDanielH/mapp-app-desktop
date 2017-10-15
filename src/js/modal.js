@@ -1,6 +1,3 @@
-import * as smoothScroll from 'smoothscroll-polyfill'
-smoothScroll.polyfill();
-
 const Modal = {
 	currentScroll: 0,
 	scrollDelay: 300,
