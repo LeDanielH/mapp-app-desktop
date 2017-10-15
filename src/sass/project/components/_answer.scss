@@ -4,6 +4,7 @@ $h-arrow: 50px;
 	font-size: 14px;
 	@include padding($base-spacing*2);
 	background-color: $c-bckg-darker;
+	text-align: left;
 	&__wrapper {
 		@include will-change(opacity, visibility);
 		@extend %anim-base;
@@ -15,6 +16,7 @@ $h-arrow: 50px;
 		@include padding($base-spacing*3 $base-spacing*4);
 		@include position(relative);
 		background-color: $c-light;
+		max-width: 960px;
 	}
 	&__close {
 		@include position(absolute, $base-spacing $base-spacing null null);

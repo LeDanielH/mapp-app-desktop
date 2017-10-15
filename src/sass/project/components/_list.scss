@@ -1,11 +1,5 @@
 .mapp {
 	ul, ol {
-		list-style-type: none;
-		padding-left: 0;
 		@include margin(0);
 	}
-	//li {
-	//	@include margin(null null ($base-spacing) null);
-	//	font-size: 13px;
-	//}
 }

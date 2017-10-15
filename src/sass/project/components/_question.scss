@@ -1,5 +1,6 @@
 $sz-question-arrow: $sz-arrow;
 .question {
+	pointer-events: none;
 	&s {
 		@include padding(($base-spacing*5));
 	}
@@ -15,38 +16,34 @@ $sz-question-arrow: $sz-arrow;
 		}
 	}
 	&__list {
-		@include padding(0 null $base-spacing null);
+		@include padding(0 null $base-spacing 0);
+		list-style-type: none;
 	}
 	&__wrapper {
 		display: inline-block;
 		position: relative;
 		cursor: pointer;
 		color: $c-content;
-		@include will-change(color);
 		@extend %anim-base;
 		&:after {
 			content: '';
 			@include position(absolute, null 0 0 0);
 			width: 100%;
-			@include will-change(width, color);
+			@include will-change(width);
 			@extend %anim-base;
 			height: 1px;
 			background-color: $c-content;
 			@include margin(null auto);
 		}
 		&:hover {
-			color: $c-content-active;
 			&:after {
 				width: 0;
-				background-color: $c-content-active;
-			}
-			a {
-				color: $c-content-active;
 			}
 		}
 	}
 	&__number {
 		display: inline-block;
 		width: 40px;
+		pointer-events: none;
 	}
 }
