@@ -18,9 +18,9 @@ mixin category(category, index)
 
 mixin answer(category, index)
 	each question, ind in category.questions
-		.modal(id=`answer-${index+1}-${ind+1}` data-category=`${index+1}` data-order=`${ind+1}`)
-			.answer__wrapper
-				.answer__close(data-category=`${index+1}` data-order=`${ind+1}`)
+		.modal(id=`modal-${index+1}-${ind+1}` data-category=`${index+1}` data-order=`${ind+1}`)
+			.modal__wrapper
+				.modal__close.modal__killer(data-category=`${index+1}` data-order=`${ind+1}`)
 				header.answer__header
 					h4.answer__category= category.title
 					|
@@ -41,10 +41,14 @@ mixin answer(category, index)
 		li.question__item
 			.question__wrapper
 				a(href="#") Changelog
+		li.question__item
+			.question__wrapper(id=`question-999-999` data-category=`999` data-order=`999`)
+				a(href="#") User Agreement
 
 	each category, index in categories
 		+category(category, index)
 
 .answers#answers
+	include user-agreement
 	each category, index in categories
 		+answer(category, index)
