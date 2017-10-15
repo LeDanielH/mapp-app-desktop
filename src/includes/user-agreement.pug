@@ -1,0 +1,11 @@
+- var uadata = require('../data/ua');
+
+.modal.modal-ua(id=`modal-999-999` data-category=`999` data-order=`999`)
+	.modal__wrapper
+		.modal__close.modal__killer(data-category=`999` data-order=`999`)
+		header.ua__header
+			h4.ua__title= uadata.title
+		article.ua!= uadata.content
+		footer.ua__footer
+			a.btn.btn--grey.modal__killer(data-category=`999` data-order=`999`) Disagree
+			a.btn.btn--orange.modal__killer(data-category=`999` data-order=`999`) Agree
