@@ -1,17 +1,38 @@
+$btn-colors: (
+	orange: $c-ua-orange,
+	grey:   $c-ua-grey
+);
+
 .btn {
-	display: flex;
+	display: inline-flex;
 	justify-content: center;
 	align-items: center;
-	height: 40px;
+	@include size(100px 40px);
+	flex: 0 0 100px;
 	text-decoration: none;
-	color: black;
-	border: 1px solid $c-border;
-	background-color: white;
-	transition: background-color $tr-duration ease;
-	i {
-		margin-right: $base-spacing;
+	@include will-change(background-color, border, color);
+	@extend %anim-base;
+	cursor: pointer;
+	user-select: none;
+	border-radius: $bd-radius;
+	@each $btn, $color in $btn-colors {
+		&--#{$btn} {
+			background-color: $color;
+			border: 1px solid $color;
+			color: $c-light;
+			&:hover {
+				background-color: $c-light;
+				border: 1px solid $color;
+				color: $color;
+			}
+		}
 	}
-	&:hover {
-		background-color: $c-bckg-active;
+	&--grey {
+		color: $c-content;
+		&:hover {
+			background-color: $c-content;
+			border: 1px solid $c-content;
+			color: $c-light;
+		}
 	}
 }

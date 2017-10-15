@@ -1,0 +1,23 @@
+.ua {
+	@include padding(($base-spacing * 1.5) $base-spacing);
+	border-top: 2px solid $c-ua-red;
+	border-bottom: 2px solid $c-ua-red;
+	&__title {
+		@include margin(null null ($base-spacing*2) null);
+	}
+	&__footer {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		@include padding($base-spacing*2 null 0);
+
+		.btn {
+			&:first-of-type {
+				@include margin(null ($base-spacing*2) null null);
+			}
+			&:last-of-type {
+				@include margin(null null null ($base-spacing*2));
+			}
+		}
+	}
+}
