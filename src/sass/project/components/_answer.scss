@@ -5,48 +5,7 @@ $h-arrow: 50px;
 	@include padding($base-spacing*2);
 	background-color: $c-bckg-darker;
 	text-align: left;
-	&__wrapper {
-		@include will-change(opacity, visibility);
-		@extend %anim-base;
-		text-align: center;
-		max-width: 90%;
-		flex: 0 0 90%;
-		display: inline-block;
-		transition-duration: $tr-duration * 1.5;
-		@include padding($base-spacing*3 $base-spacing*4);
-		@include position(relative);
-		background-color: $c-light;
-		max-width: 960px;
-	}
-	&__close {
-		@include position(absolute, $base-spacing $base-spacing null null);
-		@include size($base-spacing*2);
-		cursor: pointer;
-		&:before, &:after {
-			content: '';
-			background-color: $c-border;
-			@include position(absolute, 50% 0 null 0);
-			@include size(100% 2px);
-			margin-top: -1px;
-			display: block;
-			@include will-change(transform);
-			@extend %anim-base;
-		}
-		&:before {
-			transform: rotate(45deg);
-		}
-		&:after {
-			transform: rotate(-45deg);
-		}
-		&:hover {
-			&:before {
-				transform: rotate(-45deg);
-			}
-			&:after {
-				transform: rotate(45deg);
-			}
-		}
-	}
+
 	&__header {
 		color: $c-content;
 		@include margin(null null ($base-spacing*2) null);
