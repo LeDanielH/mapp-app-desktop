@@ -18,9 +18,9 @@ mixin category(category, index)
 
 mixin answer(category, index)
 	each question, ind in category.questions
-		.modal
-			.answer__wrapper(id=`answer-${index+1}-${ind+1}` data-category=`${index+1}` data-order=`${ind+1}`)
-				.answer__close
+		.modal(id=`answer-${index+1}-${ind+1}` data-category=`${index+1}` data-order=`${ind+1}`)
+			.answer__wrapper
+				.answer__close(data-category=`${index+1}` data-order=`${ind+1}`)
 				header.answer__header
 					h4.answer__category= category.title
 					|
