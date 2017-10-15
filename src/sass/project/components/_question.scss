@@ -25,6 +25,7 @@ $sz-question-arrow: $sz-arrow;
 		cursor: pointer;
 		color: $c-content;
 		@extend %anim-base;
+		white-space: nowrap;
 		&:after {
 			content: '';
 			@include position(absolute, null 0 0 0);
