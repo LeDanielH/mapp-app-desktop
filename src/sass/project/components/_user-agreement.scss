@@ -2,8 +2,10 @@
 	@include padding(($base-spacing * 1.5) $base-spacing);
 	border-top: 2px solid $c-ua-red;
 	border-bottom: 2px solid $c-ua-red;
+	line-height: 1.4;
 	&__title {
 		@include margin(null null ($base-spacing*2) null);
+		font-size: 20px;
 	}
 	&__footer {
 		display: flex;

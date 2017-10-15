@@ -17,7 +17,6 @@
 
 3. run `npm run build` for production
 
-
 ### EXTRA
 if you want to see live reloads in real time both on your PC and mobile for example, do the following
 	+ run `ipconfig` in your CLI and save your ip4 number
