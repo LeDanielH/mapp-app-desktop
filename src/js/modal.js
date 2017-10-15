@@ -6,21 +6,22 @@ const Modal = {
 	getAnwser(question) {
 		const category = parseInt(question.dataset.category);
 		const order = parseInt(question.dataset.order);
-		this.currentAnswer = document.getElementById(`answer-${category}-${order}`);
+		this.currentAnswer = document.getElementById(`modal-${category}-${order}`);
 		this.currentAnswer.classList.add('active');
 	},
 
 	closeAnswer(e) {
-		let matchesAnswer = e.target.matches ? e.target.matches('.answer__close') : event.target.msMatchesSelector('.answer__close');
+		let matchesAnswer = e.target.matches ? e.target.matches('.modal__killer') : event.target.msMatchesSelector('.modal__killer');
 		if (!matchesAnswer) return;
 		e.preventDefault();
 		const closeButton = e.target;
 		const category = parseInt(closeButton.dataset.category);
 		const order = parseInt(closeButton.dataset.order);
-		this.currentAnswer = document.getElementById(`answer-${category}-${order}`);
+		this.currentAnswer = document.getElementById(`modal-${category}-${order}`);
 		this.currentAnswer.classList.remove('active');
 
 	},
+
 	init() {
 		const questions = document.querySelectorAll('.question__wrapper');
 
