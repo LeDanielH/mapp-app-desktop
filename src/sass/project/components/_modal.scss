@@ -26,7 +26,6 @@
 		@include will-change(opacity, visibility);
 		@extend %anim-base;
 		text-align: center;
-		max-width: 90%;
 		flex: 0 0 90%;
 		display: inline-block;
 		transition-duration: $tr-duration * 1.5;
@@ -69,5 +68,17 @@
 		pointer-events: auto;
 		opacity: 1;
 		visibility: visible;
+		overflow: auto;
+	}
+	@media (max-width: $screen-mobile-max) {
+		&__wrapper {
+			@include padding($base-spacing*2);
+		}
+	}
+	@media (max-height: $screen-mobile-max), (max-width: $screen-mobile-max) {
+		align-items: flex-start;
+		&__wrapper {
+			@include margin(10vh null);
+		}
 	}
 }
