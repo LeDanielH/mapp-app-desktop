@@ -22,4 +22,25 @@
 			}
 		}
 	}
+	@media (max-width: $screen-mobile-max) {
+		@include padding($base-spacing*2 $base-spacing);
+	}
+	@media (max-width: $screen-mobile-min) {
+		@include padding($base-spacing);
+
+		&__title {
+			@include margin(null null ($base-spacing) null);
+		}
+
+		&__footer {
+			.btn {
+				&:first-of-type {
+					@include margin(null ($base-spacing) null null);
+				}
+				&:last-of-type {
+					@include margin(null null null ($base-spacing));
+				}
+			}
+		}
+	}
 }

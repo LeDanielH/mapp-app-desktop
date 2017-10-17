@@ -74,11 +74,27 @@
 		&__wrapper {
 			@include padding($base-spacing*2);
 		}
+		&.modal-ua {
+			.modal {
+				&__wrapper {
+					@include padding($base-spacing*3);
+				}
+			}
+		}
 	}
 	@media (max-height: $screen-mobile-max), (max-width: $screen-mobile-max) {
 		align-items: flex-start;
 		&__wrapper {
 			@include margin(10vh null);
+		}
+	}
+	@media (max-width: $screen-mobile-min) {
+		&.modal-ua {
+			.modal {
+				&__wrapper {
+					@include padding($base-spacing*2);
+				}
+			}
 		}
 	}
 }
