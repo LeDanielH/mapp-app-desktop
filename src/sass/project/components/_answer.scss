@@ -43,5 +43,10 @@ $h-arrow: 50px;
 	p {
 		margin-bottom: $base-spacing;
 	}
+	@media (max-width: $screen-tablet-max) {
+		&__header {
+			@include margin(null null $base-spacing * 1.5)
+		}
+	}
 }
 

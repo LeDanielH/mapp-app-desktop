@@ -22,6 +22,12 @@ $big-arrow-size: $sz-arrow;
 	}
 	&__number {
 		display: inline-block;
+		margin-right: $base-spacing * 0.5;
+	}
+	@media (max-width: $screen-mobile-max) {
+		&__panel {
+			@include margin(null null $base-spacing null);
+		}
 	}
 }
 

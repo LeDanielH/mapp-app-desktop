@@ -47,4 +47,36 @@ $sz-question-arrow: $sz-arrow;
 		width: 40px;
 		pointer-events: none;
 	}
+
+	@media (max-width: $screen-mobile-max) {
+		&s {
+			@include padding($base-spacing * 3);
+		}
+	}
+	@media (max-width: $screen-mobile-min) {
+		&s {
+			@include padding($base-spacing * 2);
+		}
+	}
+
+	@media (max-width: $screen-mobile-min) {
+		flex: 0 1 auto;
+		display: inline-block;
+		&__wrapper {
+			white-space: normal;
+			display: flex;
+			text-decoration: underline;
+			&:after {
+				display: none;
+			}
+			&:hover {
+				text-decoration: none;
+			}
+
+		}
+		&__number {
+			flex: 0 0 35px;
+			max-width: 35px;
+		}
+	}
 }
