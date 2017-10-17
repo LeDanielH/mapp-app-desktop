@@ -5,9 +5,12 @@ const Modal = {
 
 	getAnwser(question) {
 		const category = parseInt(question.dataset.category);
+		if(isNaN(category)) return;
 		const order = parseInt(question.dataset.order);
 		this.currentAnswer = document.getElementById(`modal-${category}-${order}`);
 		this.currentAnswer.classList.add('active');
+		this.currentAnswer.classList.add('modal__killer');
+		document.body.style.overflow = 'hidden';
 	},
 
 	closeAnswer(e) {
@@ -19,6 +22,8 @@ const Modal = {
 		const order = parseInt(closeButton.dataset.order);
 		this.currentAnswer = document.getElementById(`modal-${category}-${order}`);
 		this.currentAnswer.classList.remove('active');
+		this.currentAnswer.classList.remove('modal__killer');
+		document.body.style.overflow = 'auto';
 
 	},
 
